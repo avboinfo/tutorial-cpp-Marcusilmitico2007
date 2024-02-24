@@ -1,6 +1,3 @@
-
-
-
 #include <iostream>
 
 using namespace std;
@@ -19,14 +16,14 @@ public:
             }
         }
     }
-
+    
     void stampa_griglia()
     {
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
             {
-                cout << griglia[i][j] << "\t";
+                cout <<"|"<< griglia[i][j] <<"|"<<"\t";
             }
             cout << endl;
         }
@@ -73,8 +70,13 @@ bool giocatore_uno(int x, int y)
             risultato = controlla_riga(i);
             if (risultato!=0)
                 return risultato;
+                
         }
+        /*risultato = controlla_diagonali();
+        return risultato;*/
         
+        
+        return controlla_diagonali();
     }
 private:
     int controlla_colonna(int col){
@@ -124,9 +126,56 @@ private:
         return 0;  
     }
     int controlla_diagonali(){
+        int acc_uno =0;
+        int acc_due =0;
+        int j =0;
+    
+        for (int i = 0; i < 3; i++)
+        {
+            int cella = griglia[i][j];
+            if (cella == 1)
+            
+                acc_uno++;
+            else if (cella ==2)
+                acc_due++;
+            j++;
+            
+        }
+        if (acc_uno ==3)
+            return 1;
+        if (acc_due ==3)
+            return 2;
+        
+        j = 2;
+        acc_due=0;
+        acc_uno=0;
+        
+        for (int i = 0; i < 3; i++)
+        {
+            int cella = griglia[i][2-i];
+            if (cella == 1)
+            
+                acc_uno++;
+            else if (cella ==2)
+                acc_due++;
+            j--;
+            
+        }
+        if (acc_uno ==3)
+            return 1;
+        if (acc_due ==3)
+            return 2;
+        
 
+
+        return 0;
+        
+        
     }
+    
+    
 };
+
 int main(int argc, char const *argv[])
 {
     Tris myTris;
@@ -149,14 +198,18 @@ int main(int argc, char const *argv[])
 
         cout << "y: ";
         cin >> y;
-
-        mossa_valida = myTris.giocatore_uno(x, y);
+        mossa_valida = myTris.giocatore_uno(y, x);
     } while (!mossa_valida);
-
     myTris.stampa_griglia();
-
+    
+    mosse_totali++;
+    if(mosse_totali>=9)
+        break;
     vincitore = myTris.controlla_vincitore();
     if (vincitore !=0)
+        break;
+    mosse_totali++;
+    if( mosse_totali>=9)
         break;
     
     
@@ -168,15 +221,15 @@ int main(int argc, char const *argv[])
         cout << "y: ";
         cin >> y;
 
-        mossa_valida = myTris.giocatore_due(x, y);
+        mossa_valida = myTris.giocatore_due(y, x);
     } while (!mossa_valida);
-
     myTris.stampa_griglia();
     
     vincitore = myTris.controlla_vincitore();
     if (vincitore !=0)
         break;
         mosse_totali = mosse_totali +2;
+        cout<<"\n\n"<<mosse_totali<<"\n\n";
     }
     
 
@@ -187,12 +240,6 @@ int main(int argc, char const *argv[])
         cout<<"vince il giocatore 2!" <<endl;
     else
         cout<<"pareggio!"<<endl;
-    
-    
-
-    return 0;
+        
+        return 0;
 }
-
-
-
-
