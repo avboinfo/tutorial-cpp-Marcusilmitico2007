@@ -1,7 +1,7 @@
 /*
 ** prova_struct.cpp
 ** Author: IAV 3CIN
-** 28/02/2021
+** 26/02/2024
 */
 
 #include <iostream>
@@ -9,23 +9,28 @@
 using namespace std;
 
 /* Il tipo di dato "struct" serve per memorizzare dati di tipi uguali o diversi
-** nella stessa struttura, per poter accedere a ciascuno dei membri 
+** nella stessa struttura, per poter accedere a ciascuno dei membri
 ** attraverso il nome unico della struttura.
 */
 
-struct numeri
+struct persona
 {
-    int val_uno;
-    float val_due;
+  string nome;
+  int eta;
 };
+
 
 
 int main()
 {
-  struct numeri n;
-  n.val_uno = 100;
-  cout <<  "1) n.val_uno = " << n.val_uno << " - " << "n.val_due = " << n.val_due << endl;
-  n.val_due = 33.33;
-  cout <<  "2) n.val_uno = " << n.val_uno << " - " << "n.val_due = " << n.val_due << endl;
+  struct persona gigi, gigietto;
+  gigi.nome = " Luigi";
+  gigi.eta = 16;
+  gigietto.nome = " Luigino";
+  gigietto.eta = 6;
+
+  cout << "Gigi si chiama" << gigi.nome << " ed ha " << gigi.eta << " anni" << endl;
+  cout << "Gigietto si chiama" << gigietto.nome << " ed ha  " << gigietto.eta << " anni" << endl;
+
   return 0;
 }
