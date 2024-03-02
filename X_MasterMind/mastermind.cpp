@@ -38,14 +38,13 @@ bool sanifica_input(){
     }
 
     void genera_codice_segreto(){
-    srand(time(NULL))
-    for (size_t i = 0; i < count; i++)
-    {
-        /* code */
+    srand(time(NULL));
+    for(int i = 0; i < DIM_GIOCATA_VALIDA; i++){
+        codice_segreto[i] = rand() % 10;
     }
-    
-        genera_codice_segreto();
-    };-
+
+}
+    };
 
 public:
     mastermind(){
@@ -72,14 +71,7 @@ public:
 
 
 
-
-    }
-
-
-};
-
-
-
-
+    
+    };
 
 
