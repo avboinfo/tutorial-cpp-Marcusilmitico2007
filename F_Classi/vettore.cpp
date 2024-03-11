@@ -1,101 +1,43 @@
-/*
-Marco Marcucci
-classe vettore di interi
-*/
-
-
 #include <iostream>
-#include <string>
-#include <cstdlib>
-#include <ctime>
+using namespace std;
 
-class mastermind
-{
-private:
-    int numero_mosse;
-    std::string ultima_mossa;
-
-    static const int DIM_GIOCATA_VALIDA = 4;
-    int mossa_valida[DIM_GIOCATA_VALIDA];
-    int codice_segreto[DIM_GIOCATA_VALIDA];
-
-    bool sanifica_input()
-    {
-        if (DIM_GIOCATA_VALIDA != ultima_mossa.size())
-            return false;
-        for (int i = 0; i < ultima_mossa.size(); i++)
-        {
-            char c = ultima_mossa[i];
-            if (c >= '0' && c <= '9')
-                mossa_valida[i] = c - '0';
-            else if (c == '-') // il trattino verra convertio in -1
-                mossa_valida[i] = -1;
-            else
-                return false;
-        }
-        return true;
-    }
-
-    void genera_codice_segreto()
-    {
-        srand(time(NULL));
-        for (int i = 0; i < DIM_GIOCATA_VALIDA; i++)
-        {
-            codice_segreto[i] = rand() % 10;
-        }
-    }
-
+class Vettore {
+protected:
+    int dim, len, delta;
+    int *v;
 public:
-    mastermind()
-    {
-        numero_mosse = 0;
-        ultima_mossa = "";
-        genera_codice_segreto();
+    Vettore(int dim, int delta) {
+        this->dim = dim;
+        this->delta = delta;
+        len = 0;
+        v = new int[dim];
     }
 
-    void nuova_giocata()
-    {
-        do
-        {
-            std::cout << numero_mosse + 1 << " ";
-            std::getline(std::cin, ultima_mossa); // std:: cin >> ultima mossa; non e i
-        } while (!sanifica_input());
-
-        numero_mosse++;
+    void add(int n){
+        if(len == dim) {
+            int *nuovov = new int[dim + delta];
+            for(int i = 0; i < dim; i++) nuovov[i] = v[i];
+            dim += delta;
+            delete[] v;
+            v = nuovov;
+        }
+        v[len] = n;
+        len++;
     }
 
-    void risultato_mossa()
-    {
-        int cifre_corrette = 0;
-        int posizione_corretta = 0;
+    void print(){
+        cout << "contenuto del vettore:";
+        for(int i = 0; i < len; i++) cout << v[i] << " ";
+        cout << endl;
+    }
 
-        for (int i = 0; i < DIM_GIOCATA_VALIDA; i++)
-        {
-            if (mossa_valida[i] == codice_segreto[i])
-            {
-                posizione_corretta++;
-            }
-            else
-            {
-                for (int j = 0; j < DIM_GIOCATA_VALIDA; j++)
-                {
-                    if (mossa_valida[i] == codice_segreto[j])
-                    {
-                        cifre_corrette++;
-                        break;
-                    }
-                }
-            }
-        }
-
-        if (posizione_corretta == DIM_GIOCATA_VALIDA)
-        {
-            std::cout << "hai indovinato il codice, bravo!" << std::endl;
-        }
-        else
-        {
-            std::cout << "cifre giuste: " << cifre_corrette << std::endl;
-            std::cout << "cifre messe giuste: " << posizione_corretta << std::endl;
-        }
+    ~Vettore() {
+        delete[] v;
     }
 };
+
+int main(int argc, char * argv[]){
+    Vettore vett(10, 2);
+    for(int i = 0; i < 15; i++) vett.add(33 * i);
+    vett.print();
+}
