@@ -4,8 +4,6 @@ classe vettore di interi
 */
 
 
-
-
 #include <iostream>
 #include <string>
 #include <cstdlib>
