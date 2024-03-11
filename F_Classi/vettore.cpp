@@ -2,7 +2,7 @@
 using namespace std;
 
 class Vettore {
-protected:
+protected: //sotto classi che derivano da quella
     int dim, len, delta;
     int *v;
 public:
@@ -24,7 +24,12 @@ public:
         v[len] = n;
         len++;
     }
-
+    int getElement(int index){
+        return v[index];
+    }
+    int setElement(int index, int newvalue){
+        v[index]= newvalue;
+    }
     void print(){
         cout << "contenuto del vettore:";
         for(int i = 0; i < len; i++) cout << v[i] << " ";
@@ -38,6 +43,9 @@ public:
 
 int main(int argc, char * argv[]){
     Vettore vett(10, 2);
-    for(int i = 0; i < 15; i++) vett.add(33 * i);
+    for(int i = 0; i < 100; i++) vett.add(i);
+
+    cout<<vett.getElement(10)<<endl;
+    vett.setElement(10,333);
     vett.print();
 }
