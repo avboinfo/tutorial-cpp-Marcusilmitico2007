@@ -1,12 +1,29 @@
-#include "mastermind.cpp"
+ #include <iostream>
+
+ #include "mastermind.cpp" 
 
 
-int main(int argc, char const *argv[])
-{
-    mastermind prova = mastermind();
+ using namespace std;
 
 
-    prova.nuova_giocata();
+ int main(){
+
+    mastermind first = mastermind();
+
+    first.nuova_giocata();
+    first.risultato_mossa();
+    //mastermind start = mastermind();
+
+    //start.startGame();
+
+    /*first.generateScheme();
+    first.newShot();
+    first.moveResult();
+    first.printScheme();
+*/
+
+
+
 
     return 0;
-}
+ }
