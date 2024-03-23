@@ -104,8 +104,8 @@ public:
 
     void risultato_mossa_bis(){
         int strike, ball;
-        strike =0;
-        ball = 0;
+        strike=0;
+        ball=0;
 
         // Creo una copia del vettore codice_segreto per non andare a sovrascrivere il valore originale
         // vedi riga 125
@@ -132,20 +132,43 @@ public:
             }
             
         }
+        if(strike==DIM_GIOCATA_VALIDA){
+
+        }
 
         // Stampo il risultato della mia ricerca sul terminale
         std::cout << "Il numero di strike e': " << strike << std::endl;
         std::cout << "Il numero di ball e': " << ball << std::endl;
-        
+      
     }
-    
+
     bool puoi_continuare(){
+        if (hai_vinto || numero_mosse>= NUMERO_MOSSE_CONSENTITE)
+            return false;
+        return true;
         
     }
 
     void situazione_finale(){
-            
+        if(hai_vinto)
+            std::cout<<"hai vinto in "<< numero_mosse<<"mosse"<<std::endl;
+        else{
+            std::cout<<"hai perso il codice segreto è";
+            for (id_t i = 0; i < DIM_GIOCATA_VALIDA; i++)
+            {
+                std::cout<<codice_segreto[i];
+            }
+            std::cout<<std::endl;
+        }
+    
+
+
     }
 
 
 };
+
+
+
+
+
