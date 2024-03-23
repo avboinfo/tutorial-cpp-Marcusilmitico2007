@@ -1,29 +1,28 @@
- #include <iostream>
+#include <iostream>
 
- #include "mastermind.cpp" 
-
-
- using namespace std;
+#include "mastermind.cpp"
 
 
- int main(){
+using namespace std;
 
-    mastermind first = mastermind();
+int main(int argc, char const *argv[])
+{
+    mastermind prova = mastermind();
+    
+    cout << "Benvenuto al gioco mastermind!" << endl;
 
-    first.nuova_giocata();
-    first.risultato_mossa();
-    //mastermind start = mastermind();
+    prova.nuova_giocata();
+    prova.risultato_mossa_bis();
 
-    //start.startGame();
+    /*
+    do{
+        prova.nuova_giocata();
+        prova.risultato_mossa();
+    }while (prova.puoi_continuare());
+    
+    prova.situazione_finale();
 
-    /*first.generateScheme();
-    first.newShot();
-    first.moveResult();
-    first.printScheme();
-*/
-
-
-
+    */
 
     return 0;
- }
+}
