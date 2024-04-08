@@ -4,6 +4,17 @@ using namespace std;
 
 int main(){
 
+    Ufficiopostale up=Ufficiopostale("salicieto");
+    up.NuovoCliente("r");
+    up.NuovoCliente("s");
+    up.NuovoCliente("f");
+    up.NuovoCliente("r");
+    up.NuovoCliente("r");
+    up.NuovoCliente("r");
+    up.NuovoCliente("r");
+    up.NuovoCliente("r");
+    up.NuovoCliente("r");
+    
     Coda c= Coda(1000);
 
     c.stampa();

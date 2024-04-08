@@ -10,12 +10,14 @@ using namespace std;
 
 class Coda {
 private:
-
+    string name;
     int size, start, stop;
     int *v;
 public:
-    Coda(int size) {
+    Coda(string name,int size) {
+        this->name = name;
         this->size = size;
+
         v = new int[size];
         start = stop = 0;
     
@@ -37,9 +39,9 @@ public:
     }
 
     void stampa(){
-        cout<<"Elementi in coda:"<< endl;
-        for(int i=start;i<stop;i++) cout<<v[i]<<endl;
-        cout<<"-------------"<<endl;
+        cout<<"Elementi in coda:"<< name <<": ";
+        for(int i=start;i<stop;i++) cout<<v[i]<<" ";
+        cout<<endl;
         
        } 
     

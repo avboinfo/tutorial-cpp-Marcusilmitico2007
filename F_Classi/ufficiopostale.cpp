@@ -1,7 +1,10 @@
+
+
+
 #include<iostream>
 
 
-class poste {
+class Poste {
 private:
     char serv;
 public:
@@ -28,6 +31,7 @@ public:
     }
 
     void generaNumeroCliente() {
+
         if (serv == 's')
             numeroClienteSpedizione++;
         else if (serv == 'r')
@@ -52,3 +56,4 @@ int main() {
 
     return 0;
 }
+
