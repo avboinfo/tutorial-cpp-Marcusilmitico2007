@@ -1,29 +1,43 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 #include "Coda.cpp"
+#include "UfficioPostale.cpp"
+
 using namespace std;
 
-int main(){
+int main() {
+    bool valido = true;
+    char risposta;
 
-    Ufficiopostale up=Ufficiopostale("salicieto");
-    up.NuovoCliente("r");
-    up.NuovoCliente("s");
-    up.NuovoCliente("f");
-    up.NuovoCliente("r");
-    up.NuovoCliente("r");
-    up.NuovoCliente("r");
-    up.NuovoCliente("r");
-    up.NuovoCliente("r");
-    up.NuovoCliente("r");
-    
-    Coda c= Coda(1000);
+    while (valido) {
+        cout << "Benvenuto in Poste Italiane\n" << endl;
+        cout << "Seleziona servizio [1-3]: " << endl;
+        cout << "1. Spedizione (s)" << endl;
+        cout << "2. Ricezione (r)" << endl;
+        cout << "3. Finanzarie (f)" << "\n:";
+        int scelta;
+        cin >> scelta;
 
-    c.stampa();
-    c.enter(1);
-    c.enter(2);
-    c.enter(3);
-    c.exit();
-    c.enter(4);
-    c.stampa();
-    
-
+        switch (scelta) {
+        case 1:
+            UfficioPostale("spedizione");
+            break;
+        case 2:
+            UfficioPostale("ricezione");
+            break;
+        case 3:
+            UfficioPostale("finanzarie");
+            break;
+        default:
+            cout << "Servizio non disponibile" << endl;
+            valido = false;
+            break;
+        }
+        cout << "Vuoi continuare? [s/n]: ";
+        cin >> risposta;
+        if (risposta == 'n') {
+            valido = false;
+        }
+    }
+    return 0;
 }

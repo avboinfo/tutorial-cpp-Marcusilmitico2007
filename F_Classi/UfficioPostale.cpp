@@ -1,69 +1,84 @@
-#include<iostream>
-#include"Coda.cpp"
+#include <iostream>
+#include <string>
+#include <cctype>
+#include "Coda.cpp"
+
+
 using namespace std;
 
+class UfficioPostale {
+private:
+    string servizio;
+    int nR = 0, nS = 0, nF = 0;
+    Coda cR = Coda(1000, "ricezione");
+    Coda cS = Coda(1000, "spedizione");
+    Coda cF = Coda(1000, "finanzarie");
+    
+    
+public:
+    UfficioPostale(string servizio){
 
-class UfficioPostale{
-    private:
-        string nome:
-        Coda cR,cS,cF;
-        int nR,nS,nF;
+        this->servizio = servizio;
+        NuovoCliente(tolower(servizio[0]));
+        //addClient(servizio[0]);
 
-
-    public:
-        UfficioPostale( string nome){
-            this-> nome=nome;
-            cR=Coda("ricezzione",1000);
-            cS=Coda("spedizione",1000);
-            cF=Coda("finanziari",1000);
-            nR= nSn = nF = 100;
-    }
-
-
-
-    void nuovoCliente(char servizzio){
-        switch (servizzio){
-        case 'r':
-            cR.enter( nR++);
-            break;
-        case 's':
-            cS.enter( nS++);
-            break;
-        case 'f':
-            cF.enter( nF++);
-            break;
-        
-        default:
-            cout<<"Questo servizzio te lo fai da solo!!!!!!!!"<<endl;
+        /*
+        if (servizio == "spedizione"){
+            addClient('s');
+        } else if (servizio == "ricezione"){
+            addClient('r');
+        } else if (servizio == "finanzarie"){
+            addClient('f');
+        } else {
+            cout << "Servizio non disponibile" << endl;
         }
+        */
+
     }
 
-
-    int chiamaCliente(char servizzio){
-        switch (servizzio)
-        case 'r':
-            return cR.exit( nR++);
-            
+    int NuovoCliente(char service){
+        switch (service)
+        {
         case 's':
-            return cS.exit( nS++);
-            
+            cR.enter(++nR);
+            spedizione();
+            return cR.exit();
+        case 'r':
+            cS.enter(++nS);
+            ricezione();
+            return cS.exit();
         case 'f':
-            return cF.exit( nF++);
-            
-        
+            cF.enter(++nF);
+            finanzarie();
+            return cF.exit();
         default:
-            cout<<"Questo servizzio non è previsto!!!!!!!!"<<endl;
-        
+            cout << "Servizio non disponibile" << endl;
+            return -1;
         }
+
     }
 
-    void stampaTabellone() {
+    void spedizione(){
+        cout << "Servizio di spedizione" << endl;
+    }
 
-        cout<<"Tabello dell'Ufficio Postale"<<endl;
+    void ricezione(){
+        cout << "Servizio di ricezione" << endl;
+    }
 
+    void finanzarie(){
+        cout << "Servizio finanzarie" << endl;
+    }
 
+    void stampa(){
+        cout << "Servizio di " << servizio << endl;
+        cout << "Clienti in coda: " << endl;
+        cout << "Ricezione: ";
         cR.stampa();
+        cout << "Spedizione: ";
         cS.stampa();
+        cout << "Finanzarie: ";
         cF.stampa();
+    }
 
-    };
+};
