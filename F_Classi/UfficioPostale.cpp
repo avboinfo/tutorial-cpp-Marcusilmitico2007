@@ -20,19 +20,7 @@ public:
 
         this->servizio = servizio;
         NuovoCliente(tolower(servizio[0]));
-        //addClient(servizio[0]);
-
-        /*
-        if (servizio == "spedizione"){
-            addClient('s');
-        } else if (servizio == "ricezione"){
-            addClient('r');
-        } else if (servizio == "finanzarie"){
-            addClient('f');
-        } else {
-            cout << "Servizio non disponibile" << endl;
-        }
-        */
+        
 
     }
 
