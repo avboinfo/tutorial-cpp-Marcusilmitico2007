@@ -45,11 +45,11 @@ class Matrice{
                 cout<<endl;
             }
             cout<<"--------------------------------------------------------"<<endl;
-    }
-        void bomb{
+        }
+        void bomb(){
             int x=rand()%DIM;
             int y=rand()%DIM;
-            m[][]='*';
+            m[x][y]='*';
         }
 
         void placeshipHorizontal(int len){
@@ -74,7 +74,7 @@ int main() {
     srand(time(NULL));
     Matrice mappa = Matrice( '-' );
     Matrice campo = Matrice();//m1.stampa();
-    m.stampa
+    mappa.stampa();
     campo.placeshipHorizontal(3);
     campo.placeshipVertical(4);
     campo.placeshipVertical(1);
