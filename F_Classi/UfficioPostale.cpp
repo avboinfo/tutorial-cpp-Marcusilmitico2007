@@ -20,7 +20,6 @@ public:
 
         this->servizio = servizio;
         NuovoCliente(tolower(servizio[0]));
-        
 
     }
 
@@ -43,7 +42,6 @@ public:
             cout << "Servizio non disponibile" << endl;
             return -1;
         }
-
     }
 
     void spedizione(){

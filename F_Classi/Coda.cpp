@@ -22,7 +22,7 @@ public:
             v[i] = 0;
         }
         start = stop = 0;
-    } 
+    }
 
     void enter(int val){
         if(stop >= size){cout << "coda piena!"<<endl; return;}

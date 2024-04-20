@@ -45,7 +45,7 @@ public:
 };
 
 int main() {
-    poste prova;
+    Poste prova;
     prova.motivoPoste();
     prova.servizio();
     prova.generaNumeroCliente();
