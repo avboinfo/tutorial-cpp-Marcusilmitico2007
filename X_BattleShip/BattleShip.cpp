@@ -20,6 +20,7 @@ class BattleShip{
 
 
 
+
     public: 
     BattleShip(){
         srand(time(NULL));
@@ -55,8 +56,24 @@ class BattleShip{
         
 
         mappa.stampa();
-        campo.stampa();
+
+        ask();
+
         
+        mappa.stampa();
+        campo.stampa();
     }
-};
+
+    void ask(){
+        cout<<"Inserisci le cordinate di riga e colona in cui sganciare la bomba";
+        int x, y;
+        cin>>x;
+        cin>>y;
+        if(campo.get(x,y)==SHIP) {
+                mappa.put(x,y,HIT);
+                campo.put(x,y,HIT);
+            } else mappa.put(x,y,MISS);
+        }
+    };
+
 
