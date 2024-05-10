@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
+#include <iostream>
+#include <fstream>
 
 
 int compra(int N, int M, int A, int B)
@@ -41,3 +43,4 @@ int main() {
     fclose(fw);
     return 0;
 }
+
