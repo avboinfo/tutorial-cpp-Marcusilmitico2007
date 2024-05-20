@@ -4,6 +4,20 @@
 #include <fstream>
 
 
+int maxCarnet(int N, int M){
+    
+    return N/M;
+}
+int restoCarnet(int N, int M){
+    
+    int resto=N-M*maxCarnet(N,M);
+    return resto;
+    
+}
+int costototale(int N, int M, int A, int B){
+    return maxCarnet(N,M)*B + restoCarnet(N,M)*A;
+}
+
 int compra(int N, int M, int A, int B)
 {
     int NCarnet = 0;
