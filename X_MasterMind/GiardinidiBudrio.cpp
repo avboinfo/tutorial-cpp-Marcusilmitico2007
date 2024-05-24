@@ -26,10 +26,13 @@ int pollice_verde(int N, int* H) {
     int maxDx=massimoVettore(H,N);
     int piante=1;
 
-    for (int  i = posMax + 1 ; i <N ; i++)
+    for (int  i = posMax + 1 ; i <N && !trovato; i++)
     {
         if(H[i]>=H[i-1])
             piante++;
+            //int newH[len-i] = for che copia gli elementi
+           //piante+= pollice_verde(len-i, sottovettore di H)
+           //trovato = true;
     }
     for (int i = posMax - 1; i>=0; i--)
     {
