@@ -60,6 +60,9 @@ int main()
     piante=pollice_verde(N,H);
     cout<<piante;
     
+
+    fprintf(output,"%d", piante);
+
     return 0;
 
 
