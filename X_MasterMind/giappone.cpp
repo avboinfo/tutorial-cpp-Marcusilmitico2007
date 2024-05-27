@@ -16,7 +16,7 @@ int main() {
         for (int j = i; j < n; ++j) {
             if (!Vettore[j] && spesaTOT + prezzi[j] <= b) {
                 spesaTOT += prezzi[j];
-                Vettore[j] = true; 
+                Vettore[j] = true;
             }
         }
     }
