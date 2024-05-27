@@ -5,7 +5,7 @@ int main() {
     int n, b;
     cin >> n >> b;
     int prezzi[n]; 
-    bool Vettore[n] = {false}; 
+    bool Vettore[n] = {false} ;
 
     for (int i = 0; i < n; ++i) {
         cin >> prezzi[i];
