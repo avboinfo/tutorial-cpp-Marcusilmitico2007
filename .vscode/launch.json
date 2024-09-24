@@ -3,5 +3,20 @@
     // Al passaggio del mouse vengono visualizzate le descrizioni degli attributi esistenti.
     // Per altre informazioni, visitare: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Helloworld",
+            "request": "launch",
+            "mainClass": "Helloworld",
+            "projectName": "tutorial-cpp-Marcusilmitico2007_45f2ba3f"
+        },
+        {
+            "type": "java",
+            "name": "BiciclettaEMotorino",
+            "request": "launch",
+            "mainClass": "BiciclettaEMotorino",
+            "projectName": "tutorial-cpp-Marcusilmitico2007_45f2ba3f"
+        }
+    ]
 }
